@@ -56,6 +56,12 @@ keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
+-- Harpoon
+keymap("n", "<leader>aa", "<cmd>lua require('harpoon.mark').add_file()<CR>", opts)
+keymap("n", "<leader>n", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
+keymap("n", "<leader>3", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", opts)
+keymap("n", "<leader>8", "<cmd>lua require('harpoon.ui').nav_next()<CR>", opts)
+
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 
