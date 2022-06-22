@@ -20,5 +20,7 @@ null_ls.setup {
     diagnostics.flake8.with {
       extra_args = { "--config-path", vim.fn.expand("~/.config/flake8") },
     },
+    diagnostics.tidy,
+    diagnostics.stylelint
   },
 }
