@@ -23,8 +23,8 @@ table.insert(dap.configurations.python, {
 	program = vim.fn.getcwd() .. "/manage.py",
 	args = { "runserver", "0.0.0.0:8001", "--noreload" },
 	pythonPath = "venv/bin/python",
-  django = "true",
-  justMyCode = "true"
+	django = "true",
+	justMyCode = "true",
 })
 
 dapui.setup({})
