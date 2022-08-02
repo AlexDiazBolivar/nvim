@@ -9,6 +9,7 @@ if not dap_ui_status_ok then
 end
 
 require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
+require("dap-python").test_runner = 'django'
 
 dap.adapters.python = {
 	type = "executable",
@@ -25,6 +26,29 @@ table.insert(dap.configurations.python, {
 	pythonPath = "venv/bin/python",
 	django = "true",
 	justMyCode = "true",
+})
+
+-- table.insert(dap.configurations.python, {
+-- 	type = "python",
+-- 	request = "launch",
+-- 	name = "Django all tests",
+-- 	program = vim.fn.getcwd() .. "/manage.py",
+-- 	args = { "test" },
+-- 	pythonPath = "venv/bin/python",
+-- 	django = "true",
+-- 	justMyCode = "true",
+-- })
+
+table.insert(dap.configurations.python, {
+    name =  "Python: Debug Tests",
+    type =  "python",
+    request = "launch",
+	  program = vim.fn.getcwd() .. "/manage.py",
+	  args = { "test", "apps.services.tests.test_SOSD.SOSDTest.test__one_way_drop" },
+    purpose = "debug-test",
+    console = "integratedTerminal",
+    justMyCode = "false",
+    env = { DJANGO_SETTING_MODULE = "main_config.settings.base" }
 })
 
 dapui.setup({})

@@ -3,4 +3,8 @@ if not zen_mode_status_ok then
 	return
 end
 
-require("zen-mode").setup({})
+require("zen-mode").setup({
+	window = {
+		width = 160,
+	},
+})
